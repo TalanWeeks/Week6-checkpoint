@@ -1,5 +1,5 @@
-export class AdModel{
-  constructor(adData){
+export class AdModel {
+  constructor(adData) {
     this.id = adData.id
     this.title = adData.title
     this.linkURL = adData.linkURL
