@@ -3,7 +3,8 @@
     <div class="card shadow border elevatated-5">
       <div class="card-title">
         <div class="on-hover position-absolute" style="right: 1rem; top: 1rem" v-if="account.id == post.creatorId">
-          <i class="mdi mdi-close text-danger f-20 selectable" @click="deleteProject()"></i>
+          <i class="mdi mdi-close text-danger f-20 selectable" @click="deletePost()"></i>
+          <!-- NOTE make delete funciton work after getting a post to work -->
         </div>
         <img :src="post.imgUrl" class="card-img-top" alt="...">
       </div>
@@ -32,6 +33,7 @@
 </template>
 
 <script>
+import { adsService } from '../services/AdsService'
 import { computed } from '@vue/runtime-core'
 import { PostModel } from '../models/PostModel'
 import { postsService } from '../services/PostsService'
@@ -48,6 +50,13 @@ export default {
       async getPosts(props) {
         try {
           await postsService.getPosts()
+        } catch (error) {
+          Pop.toast(error, 'error')
+        }
+      },
+      async getAds() {
+        try {
+          await adsService.getAds()
         } catch (error) {
           Pop.toast(error, 'error')
         }

@@ -18,13 +18,16 @@
 </template>
 
 <script>
-import { computed } from 'vue'
+import { onMounted, computed } from 'vue'
 import { AppState } from './AppState'
+import { adsService } from './services/AdsService'
 export default {
   name: 'App',
   setup() {
+    onMounted(() => { adsService.getAds() })
     return {
       appState: computed(() => AppState)
+
     }
   }
 }
