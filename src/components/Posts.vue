@@ -3,8 +3,7 @@
     <div class="card shadow border elevatated-5">
       <div class="card-title">
         <div class="on-hover position-absolute" style="right: 1rem; top: 1rem" v-if="account.id == post.creatorId">
-          <i class="mdi mdi-close text-danger f-20 selectable" @click="deletePost()"></i>
-          <!-- NOTE make delete funciton work after getting a post to work -->
+          <i class="mdi mdi-delete-forever text-danger f-20 selectable" @click="deletePost()"></i>
         </div>
         <img :src="post.imgUrl" class="card-img-top" alt="...">
       </div>
@@ -24,7 +23,7 @@
             <h6>Creator Name:</h6> {{ post.creator.name }}
           </div>
           <div class="col-4">
-            <h6>Graduated:</h6> {{ post.creator.graduated }}
+            <h6>Likes:</h6> {{ post.likeIds.length }}
           </div>
         </div>
       </div>
@@ -43,7 +42,7 @@ export default {
   props: {
     post: { type: PostModel, required: true }
   },
-  setup() {
+  setup(props) {
     return {
       account: computed(() => AppState.account),
       posts: computed(() => AppState.posts),
@@ -57,6 +56,14 @@ export default {
       async getAds() {
         try {
           await adsService.getAds()
+        } catch (error) {
+          Pop.toast(error, 'error')
+        }
+      },
+      async deletePost() {
+        try {
+          await postsService.deletePost(props.post.id)
+          Pop.toast('Deleted Forever!', 'success')
         } catch (error) {
           Pop.toast(error, 'error')
         }

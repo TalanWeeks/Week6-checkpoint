@@ -5,16 +5,28 @@
   <main class="container-fluid">
     <div class="row">
       <Sidebar class="col-md-2" />
-      <div class="col-md-10 viewport">
+      <div class="col-md-10 p-0 viewport">
+        <AdBanner class="row" />
         <router-view />
+        <ArrowNextPage />
+        <Ads />
       </div>
     </div>
   </main>
   <footer>
-    <div class="bg-dark text-light text-center p-4">
+    <div class="bg-dark text-light text-center p-4 m-0">
       Made with 💖 by CodeWorks
     </div>
   </footer>
+
+  <Modal id="post-form">
+    <template #modal-title>
+      <h4>Post Form</h4>
+    </template>
+    <template #modal-body>
+      <PostForm />
+    </template>
+  </Modal>
 </template>
 
 <script>

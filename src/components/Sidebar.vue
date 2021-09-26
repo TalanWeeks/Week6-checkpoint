@@ -12,14 +12,14 @@
             <div class="col-12">
               <img
                 :src="user.picture"
-                alt="user photo"
-                height="70"
+                alt="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973461_1280.png"
+                height="75"
                 class="rounded"
               />
             </div>
           </div>
         </div>
-        <button class="btn btn-success my-5">
+        <button v-if="user.isAuthenticated" class="btn btn-success my-5" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
           Create a post
         </button>
       </div>
