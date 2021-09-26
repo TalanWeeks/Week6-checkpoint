@@ -7,6 +7,7 @@
              width="100"
              alt=""
              @click="getNextPage()"
+             v-if="currentPage > 1"
         >
       </div>
       <div class="col-md-2 ">
@@ -34,14 +35,15 @@ export default {
   setup(props) {
     return {
       posts: computed(() => AppState.posts),
-      async getNextPage(props) {
+      currentPage: computed(() => AppState.currentPage),
+      async getNextPage(currentPage) {
         try {
           await postsService.getNextPage()
         } catch (error) {
           Pop.toast(error.message, 'error')
         }
       },
-      async getPreviousPage(props) {
+      async getPreviousPage(currentPage) {
         try {
           await postsService.getPreviousPage()
         } catch (error) {

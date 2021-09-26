@@ -13,17 +13,31 @@
         </h5>
       </div>
       <div class="card-foot">
-        <div class="row d-flex justify-space-around">
-          <div class="col-4">
+        <div class="row d-flex justify-content-between">
+          <div class="col-3 ms-1" v-if="user.isAuthenticated">
+            <img src="https://cdn.imgbin.com/21/22/10/imgbin-coloring-book-emoji-heart-drawing-the-heart-icon-nF2YRNtAqH7rWYR4F44MvvaYd.jpg"
+                 class="selectable"
+                 width="50"
+                 alt=""
+                 v-if="user.isAuthenticated"
+                 @click="likePost()"
+            >
+            <img src="https://th.bing.com/th/id/OIP.M10KEQ5DMiYOh9dUAtsAnQHaHa?pid=ImgDet&rs=1"
+                 alt=""
+                 width="50"
+                 v-else
+            >
+            <h6>total likes:</h6> {{ post.likeIds.length }}
+          </div>
+
+          <div class="col-3">
+            <h6>Creator Name:</h6> {{ post.creator.name }}
+          </div>
+
+          <div class="col-3">
             <router-link :to="{name: 'Profile', params: {id: post.creatorId}}" class="selectable">
               <img :src="post.creator.picture" width="50" alt="">
             </router-link>
-          </div>
-          <div class="col-4">
-            <h6>Creator Name:</h6> {{ post.creator.name }}
-          </div>
-          <div class="col-4">
-            <h6>Likes:</h6> {{ post.likeIds.length }}
           </div>
         </div>
       </div>
@@ -46,6 +60,9 @@ export default {
     return {
       account: computed(() => AppState.account),
       posts: computed(() => AppState.posts),
+      profile: computed(() => AppState.profile),
+      user: computed(() => AppState.user),
+      likeIds: computed(() => AppState.likeIds),
       async getPosts(props) {
         try {
           await postsService.getPosts()
@@ -64,6 +81,13 @@ export default {
         try {
           await postsService.deletePost(props.post.id)
           Pop.toast('Deleted Forever!', 'success')
+        } catch (error) {
+          Pop.toast(error, 'error')
+        }
+      },
+      async likePost() {
+        try {
+          await postsService.likePost(props.post.id)
         } catch (error) {
           Pop.toast(error, 'error')
         }
