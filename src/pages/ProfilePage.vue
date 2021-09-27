@@ -18,7 +18,7 @@
 
                 <ul class="dropdown-menu">
                   <li>
-                    <button class="dropdown-item selectable btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#profile-form">
+                    <button class="dropdown-item selectable btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#profile-modal">
                       Edit Profile
                     </button>
                   </li>
@@ -54,6 +54,16 @@
       <h3>No Posts Under This User</h3>
     </div>
   </div>
+  <Modal id="profile-modal">
+    <template #modal-title>
+      <h6> Edit Your Profile </h6>
+    </template>
+    <template #modal-body>
+      <!-- REVIEW PROPS -->
+      <!-- drawCarForm(car) -->
+      <ProfileForm :profile="profile" />
+    </template>
+  </Modal>
 </template>
 
 <script>

@@ -63,7 +63,7 @@
           </div>
           <div class="form-group">
             <button type="submit" class="btn btn-success mt-2">
-              Create Post
+              Edit Profile
             </button>
           </div>
         </div>
@@ -87,8 +87,7 @@ export default {
           const yes = await Pop.confirm('Are you sure you want to Update?')
           if (!yes) { return }
           await profileService.editProfile(editable.value)
-          const modal = Modal.getInstance(document.getElementById('profile-form'))
-          modal.hide()
+          // const modal = Modal.getInstance(document.getElementById('profile-form'))
         } catch (error) {
           Pop.toast(error.message, 'error')
         }
