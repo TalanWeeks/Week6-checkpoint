@@ -37,6 +37,7 @@ class PostsService {
 
   async searchForPosts(query = {}) {
     const res = await api.get('api/posts/?query=' + query)
+    AppState.posts = res.data.posts.map(p => new PostModel(p))
   }
 
   async deletePost(postId) {

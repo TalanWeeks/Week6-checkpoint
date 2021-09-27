@@ -1,6 +1,9 @@
 <template>
   <div class="sidebar d-md-flex flex-column justify-content-between bg-dark d-none d-md-block">
     <div class="top-part">
+      <div>
+        <PostSearchBar />
+      </div>
       <div class="row pt-5 text-center">
         <div class="col-12">
           <div class="text-white py-5">

@@ -11,10 +11,10 @@ class ProfileService {
     AppState.profile = res.data
   }
 
-  async editProfile(profile) {
-    const res = await api.put('profile', profile)
+  async editProfile(accountData) {
+    const res = await api.put('/account', accountData)
     logger.log('edit data', res)
-    // AppState.profile = new ProfileModel(res.data)
+    AppState.profile = new ProfileModel(res.data)
   }
 }
 

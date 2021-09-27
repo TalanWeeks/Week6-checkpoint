@@ -16,8 +16,12 @@
                   ...
                 </a>
 
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <li><a class="dropdown-item selectable" data-bs-toggle="modal" data-bs-target="#post-form">Edit Profile</a></li>
+                <ul class="dropdown-menu">
+                  <li>
+                    <button class="dropdown-item selectable btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#profile-form">
+                      Edit Profile
+                    </button>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -60,20 +64,11 @@ import { profileService } from '../services/ProfileService'
 import { postsService } from '../services/PostsService'
 import { AppState } from '../AppState'
 export default {
-  name: 'Profile',
   setup() {
     const route = useRoute()
     async function getposts() {
       try {
         await postsService.getPosts({ creatorId: route.params.id })
-      } catch (error) {
-        Pop.toast(error, 'error')
-      }
-    }
-
-    async function editProfile() {
-      try {
-        await profileService.editProfile()
       } catch (error) {
         Pop.toast(error, 'error')
       }

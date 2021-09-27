@@ -23,7 +23,7 @@
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-success mt-2">
-        Create Post
+        Edit Profile
       </button>
     </div>
   </form>
@@ -45,7 +45,7 @@ export default {
           editable.value = { posts: [] }
           Pop.toast(' Cool cool cool', 'success')
 
-          const modal = Modal.getinstance(document.getElementById('post-form'))
+          const modal = Modal.getInstance(document.getElementById('post-form'))
           modal.hide()
         } catch (error) {
           Pop.toast(error.message, 'error')
