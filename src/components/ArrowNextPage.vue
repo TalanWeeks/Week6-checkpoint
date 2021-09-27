@@ -1,7 +1,7 @@
 <template>
   <div class="component">
-    <div class="row py-3 d-felx justify-content-between text-center">
-      <div class="col-md-2 arrow-img-left">
+    <div class="row py-3 p-0 m-0 d-felx justify-content-between text-center">
+      <div class="col-md-3 arrow-img-left p-0 m-0">
         <img src="https://th.bing.com/th/id/OIP.nDig1rhLE9NJy9LOneW0rwHaHa?pid=ImgDet&rs=1"
              class="selectable"
              width="100"
@@ -10,7 +10,7 @@
              v-if="currentPage > 1"
         >
       </div>
-      <div class="col-md-2 ">
+      <div class="col-md-3 p-0 m-0 ">
         <img src="https://th.bing.com/th/id/OIP.nDig1rhLE9NJy9LOneW0rwHaHa?pid=ImgDet&rs=1"
              width="100"
              alt=""
