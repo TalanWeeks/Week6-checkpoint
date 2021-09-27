@@ -13,7 +13,7 @@
         </h5>
       </div>
       <div class="card-foot">
-        <div class="row d-flex justify-content-between">
+        <div class="row d-flex justify-content-between mb-1">
           <div class="col-3 ms-1" v-if="user.isAuthenticated">
             <img src="https://cdn.imgbin.com/21/22/10/imgbin-coloring-book-emoji-heart-drawing-the-heart-icon-nF2YRNtAqH7rWYR4F44MvvaYd.jpg"
                  class="selectable"
@@ -38,6 +38,8 @@
             <router-link :to="{name: 'Profile', params: {id: post.creatorId}}" class="selectable">
               <img :src="post.creator.picture" width="50" alt="">
             </router-link>
+            <h6>Posted:</h6>
+            <span>{{ new Date(post.creator.createdAt).toDateString() }}</span>
           </div>
         </div>
       </div>

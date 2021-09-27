@@ -35,6 +35,10 @@ class PostsService {
     logger.log('created post data', res.data)
   }
 
+  async searchForPosts(query = {}) {
+    const res = await api.get('api/posts/?query=' + query)
+  }
+
   async deletePost(postId) {
     const res = await api.delete('api/posts/' + postId)
     logger.log('the post that twas deleted', res)
