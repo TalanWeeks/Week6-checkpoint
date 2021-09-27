@@ -4,7 +4,7 @@
       <div class="d-flex flex-column align-items-center">
         <img
           alt="logo"
-          src="https://www.redwolf.in/image/cache/catalog/artwork-Images/sweatshirts/batman-classic-logo-sweatshirt-india-artwork-438x438.png"
+          src="https://pbs.twimg.com/profile_images/433010872290516992/Nhpfh8fE.jpeg"
           height="45"
         />
       </div>

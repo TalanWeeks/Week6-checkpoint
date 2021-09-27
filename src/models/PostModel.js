@@ -6,5 +6,6 @@ export class PostModel {
     this.likeIds = postData.likeIds
     this.body = postData.body
     this.creator = postData.creator || {}
+    this.createdAt = postData.createdAt
   }
 }

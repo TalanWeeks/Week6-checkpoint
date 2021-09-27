@@ -12,10 +12,10 @@
             </h3>
           </div>
           <div class="row pt-1">
-            <div class="col-12">
+            <div class="col-12 text-light">
               <img
                 :src="user.picture"
-                alt="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973461_1280.png"
+                alt="Please Log In"
                 height="75"
                 class="rounded"
               />

@@ -1,11 +1,11 @@
 <template>
   <header>
-    <Navbar />
+    <Navbar class="bg-grey" />
   </header>
-  <main class="container-fluid">
+  <main class="container-fluid ">
     <div class="row">
-      <Sidebar class="col-md-2" />
-      <div class="col-md-10 p-0 viewport">
+      <Sidebar class="col-md-2 bg-grey" />
+      <div class="col-md-10 p-0 viewport bg-dark">
         <AdBanner class="row" />
         <router-view />
         <ArrowNextPage />
@@ -14,9 +14,6 @@
     </div>
   </main>
   <footer>
-    <div class="bg-dark text-light text-center p-4 m-0">
-      Made with 💖 by CodeWorks
-    </div>
   </footer>
 
   <Modal id="post-form">

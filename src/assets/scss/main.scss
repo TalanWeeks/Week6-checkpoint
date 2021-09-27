@@ -32,6 +32,23 @@ select {
   }
 }
 
+// .gradient-custom {
+//   /* fallback for old browsers */
+//   background: #000000;
+
+//   /* Chrome 10-25, Safari 5.1-6 */
+//   background: -webkit-linear-gradient(to top, rgba(4, 104, 4, 0.404), rgb(0, 3, 0));
+
+//   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+//   background: linear-gradient(to top, rgba(6, 82, 3, 0.384), rgb(0, 0, 0))
+// }
+
+.card-border-glow {
+  box-shadow: 0px 0px 14px 4px #17cb11dc !important;
+}
+
+
+
 form:invalid button[type="submit"] {
   filter: grayscale(1);
   pointer-events: none;

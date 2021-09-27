@@ -1,6 +1,6 @@
 <template>
-  <div class="col-md-3 m-2">
-    <div class="card shadow border elevatated-5">
+  <div class="col-md-4 m-5">
+    <div class="card shadow card-gradient-custom card-border-glow elevatated-5">
       <div class="card-title">
         <div class="on-hover position-absolute" style="right: 1rem; top: 1rem" v-if="account.id == post.creatorId">
           <i class="mdi mdi-delete-forever text-danger f-20 selectable" @click="deletePost()"></i>
@@ -15,7 +15,8 @@
       <div class="card-foot">
         <div class="row d-flex justify-content-between mb-1">
           <div class="col-3 ms-1" v-if="user.isAuthenticated">
-            <img src="https://cdn.imgbin.com/21/22/10/imgbin-coloring-book-emoji-heart-drawing-the-heart-icon-nF2YRNtAqH7rWYR4F44MvvaYd.jpg"
+            <!-- NOTE change this back one day when you make likes render -->
+            <img src="https://th.bing.com/th/id/OIP.M10KEQ5DMiYOh9dUAtsAnQHaHa?pid=ImgDet&rs=1"
                  class="selectable"
                  width="50"
                  alt=""
@@ -39,7 +40,7 @@
               <img :src="post.creator.picture" width="50" alt="">
             </router-link>
             <h6>Posted:</h6>
-            <span>{{ new Date(post.creator.createdAt).toDateString() }}</span>
+            <span>{{ new Date(post.createdAt).toLocaleTimeString('en-US') }}</span>
           </div>
         </div>
       </div>
@@ -100,5 +101,15 @@ export default {
 </script>
 
 <style>
+.card-gradient-custom {
+  /* fallback for old browsers */
+  background: #21cb11ab;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(23, 203, 17, 0.603), rgba(37, 252, 66, 0.548));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(17, 203, 48, 0.61), rgba(37, 252, 84, 0.555))
+}
 
 </style>

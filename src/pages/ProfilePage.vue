@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row m-0 mt-2 p-0 cover-profile-img" :style="{backgroundImage: `url(${profile.coverImg})`}">
       <div class="col-4 mt-4">
-        <div class="card m-4  container-fluid">
+        <div class="card m-4  container-fluid card-gradient-custom text-dark">
           <div class="card-title m-0 p-0">
             <div class=" mt-5 position-absolute" style="right: 1rem; top: 1rem" v-if="account.id == profile.id">
               <div class="dropdown">
@@ -44,7 +44,7 @@
         </div>
       </div>
     </div>
-    <div class="row mt-5 text-center">
+    <div class="row mt-5 text-center text-light">
       <h2>Posts By: {{ profile.name }}</h2>
     </div>
     <div class="row mt-5" v-if="posts.length > 0">
@@ -106,6 +106,17 @@ export default {
   height: 60vh;
   background-position: center center;
   size: cover;
+}
+
+.card-gradient-custom {
+  /* fallback for old browsers */
+  background: #21cb11;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(23, 203, 17, 0.603), rgba(37, 252, 66, 0.548));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(17, 203, 48, 0.61), rgba(37, 252, 84, 0.555))
 }
 
 </style>
